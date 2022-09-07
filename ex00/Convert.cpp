@@ -6,7 +6,7 @@
 /*   By: gclausse <gclausse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 16:26:42 by gclausse          #+#    #+#             */
-/*   Updated: 2022/09/07 17:27:03 by gclausse         ###   ########.fr       */
+/*   Updated: 2022/09/07 18:18:19 by gclausse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,6 @@
 Convert::Convert()
 {
 	std::cout << "Convert default constructor called" << std::endl;
-}
-
-Convert::Convert(std::string str) : _content(str)
-{
-	std::cout << "Convert constructor called" << std::endl;
 }
 
 Convert::~Convert()
@@ -36,7 +31,7 @@ void	Convert::setType(std::string str)
 {
 	std::string::const_iterator it = str.begin();
 	this->_type = INV;
-	std::cout << "str0 == " << *it << std::endl;
+	std::cout << str  << std::endl;
 	if (/*str.length() == 3 && */*it == '\'' && *(it + 2) == '\'')
 	{
 		this->_type = CHAR;
@@ -76,11 +71,6 @@ Convert& Convert::operator=(Convert const& copy)
 
 }
 
-const std::string &Convert::getContent() const
-{
-	return this->_content;
-}
-
 void	Convert::convInt(std::string const &input)
 {
 	double d = strtod(input.c_str(), NULL);
@@ -93,7 +83,11 @@ void	Convert::convInt(std::string const &input)
 
 void	Convert::convDouble(std::string const &input)
 {
+	const char *pbm = input.c_str();
 	double d = strtod(input.c_str(), NULL);
+	
+	std::cout << "pbm == " << pbm << std::endl;
+	std::cout << d << std::endl;
 
 	std::cout << "char : '" << static_cast<char>(d) << "'" << std::endl;
 	std::cout << "int : " <<  static_cast<int>(d)<< std::endl;
@@ -116,6 +110,8 @@ void	Convert::convFloat(std::string const &input)
 {
 	double d = strtod(input.c_str(), NULL);
 
+
+	std::cout << "In float and d == " << d << std::endl;
 	std::cout << "char : '" << static_cast<char>(d) << "'" << std::endl;
 	std::cout << "int : " <<  static_cast<int>(d)<< std::endl;
 	std::cout << "float : " << static_cast<float>(d) << std::endl;

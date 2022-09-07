@@ -6,7 +6,7 @@
 /*   By: gclausse <gclausse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 16:27:07 by gclausse          #+#    #+#             */
-/*   Updated: 2022/09/07 17:49:03 by gclausse         ###   ########.fr       */
+/*   Updated: 2022/09/07 17:54:44 by gclausse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 class	Convert {
 	public :
 		Convert();
-		Convert(std::string str);
 		~Convert();
 		Convert(const Convert& copy);
 		Convert &operator=(Convert const &copy);
@@ -30,18 +29,13 @@ class	Convert {
 		const int &getType() const;
 		void	setType(std::string str);
 
-		const std::string &getContent() const;
-
-		
 		void	convInt(std::string const &input);
 		void	convFloat(std::string const &input);
 		void	convDouble(std::string const &input);
 		void	convChar(std::string const &input);
 
-
 	private :
 		int _type;
-		std::string	_content;
 };
 
 void	convert(std::string str);
