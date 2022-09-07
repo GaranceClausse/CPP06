@@ -6,7 +6,7 @@
 /*   By: gclausse <gclausse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 16:26:42 by gclausse          #+#    #+#             */
-/*   Updated: 2022/09/07 15:05:19 by gclausse         ###   ########.fr       */
+/*   Updated: 2022/09/07 16:01:38 by gclausse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,20 @@ Convert& Convert::operator=(Convert const& copy)
 	_type = copy.getType();
 	return (*this);
 
+}
+
+const std::string &Convert::getContent() const
+{
+	return this->_content;
+}
+
+void	Convert::convInt(int input)
+{
+	std::cout << "char : '" << static_cast<char>(input) << "'" << std::endl;
+	std::cout << "int : " << static_cast<int>(input) << std::endl;
+	std::cout << "float : " << static_cast<float>(input) << std::endl;
+	std::cout << "double : " << static_cast<double>(input) << std::endl;
+	
 }
 
 std::ostream&	operator<<(std::ostream& stream, Convert const &copy)

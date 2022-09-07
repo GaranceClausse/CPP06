@@ -6,7 +6,7 @@
 /*   By: gclausse <gclausse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 16:28:30 by gclausse          #+#    #+#             */
-/*   Updated: 2022/09/07 14:42:25 by gclausse         ###   ########.fr       */
+/*   Updated: 2022/09/07 15:57:16 by gclausse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,12 @@ int	main(int argc, char **argv)
 		std::cout << "Protoype : ./convert [literal]" << std::endl;
 		return 1;
 	}
+	int	i;
+
+	std::stringstream degree(argv[1]);
+	degree >> i;
 	Convert* a = new Convert(argv[1]);
 	a->setType(argv[1]);
 	std::cout << *a;
+	a->convInt(i);
 }
