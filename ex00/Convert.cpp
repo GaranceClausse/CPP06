@@ -6,7 +6,7 @@
 /*   By: gclausse <gclausse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 16:26:42 by gclausse          #+#    #+#             */
-/*   Updated: 2022/09/07 16:01:38 by gclausse         ###   ########.fr       */
+/*   Updated: 2022/09/07 17:27:03 by gclausse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,28 +81,44 @@ const std::string &Convert::getContent() const
 	return this->_content;
 }
 
-void	Convert::convInt(int input)
+void	Convert::convInt(std::string const &input)
 {
-	std::cout << "char : '" << static_cast<char>(input) << "'" << std::endl;
-	std::cout << "int : " << static_cast<int>(input) << std::endl;
-	std::cout << "float : " << static_cast<float>(input) << std::endl;
-	std::cout << "double : " << static_cast<double>(input) << std::endl;
+	double d = strtod(input.c_str(), NULL);
+
+	std::cout << "char : '" << static_cast<char>(d) << "'" << std::endl;
+	std::cout << "int : " <<  static_cast<int>(d)<< std::endl;
+	std::cout << "float : " << static_cast<float>(d) << std::endl;
+	std::cout << "double : " << static_cast<double>(d) << std::endl;
+}
+
+void	Convert::convDouble(std::string const &input)
+{
+	double d = strtod(input.c_str(), NULL);
+
+	std::cout << "char : '" << static_cast<char>(d) << "'" << std::endl;
+	std::cout << "int : " <<  static_cast<int>(d)<< std::endl;
+	std::cout << "float : " << static_cast<float>(d) << std::endl;
+	std::cout << "double : " << static_cast<double>(d) << std::endl;
+}
+
+void	Convert::convChar(std::string const &input)
+{
+	double d = strtod(input.c_str(), NULL);
+
+	std::cout << "char : '" << static_cast<char>(d) << "'" << std::endl;
+	std::cout << "int : " <<  static_cast<int>(d)<< std::endl;
+	std::cout << "float : " << static_cast<float>(d) << std::endl;
+	std::cout << "double : " << static_cast<double>(d) << std::endl;
 	
 }
 
-std::ostream&	operator<<(std::ostream& stream, Convert const &copy)
+void	Convert::convFloat(std::string const &input)
 {
-	int t = copy.getType();
+	double d = strtod(input.c_str(), NULL);
+
+	std::cout << "char : '" << static_cast<char>(d) << "'" << std::endl;
+	std::cout << "int : " <<  static_cast<int>(d)<< std::endl;
+	std::cout << "float : " << static_cast<float>(d) << std::endl;
+	std::cout << "double : " << static_cast<double>(d) << std::endl;
 	
-	if (t == 0)
-		stream << "Char" << std::endl;
-	else if (t == 1)
-		stream << "int" << std::endl;
-	else if (t == 2)
-		stream << "float" << std::endl;
-	else if (t == 3)
-		stream << "double" << std::endl;
-	else if (t == 4)
-		stream << "invalid" << std::endl;
-	return (stream);
 }

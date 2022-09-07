@@ -6,7 +6,7 @@
 /*   By: gclausse <gclausse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 16:27:07 by gclausse          #+#    #+#             */
-/*   Updated: 2022/09/07 15:55:47 by gclausse         ###   ########.fr       */
+/*   Updated: 2022/09/07 17:49:03 by gclausse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <cctype>
 #include <string>
 #include <sstream>
+#include <cstdlib>
 
 class	Convert {
 	public :
@@ -32,17 +33,17 @@ class	Convert {
 		const std::string &getContent() const;
 
 		
-		void	convInt(int input);
-		void	convFloat(float input);
-		void	convDouble(double input);
-		void	convChar(char input);
+		void	convInt(std::string const &input);
+		void	convFloat(std::string const &input);
+		void	convDouble(std::string const &input);
+		void	convChar(std::string const &input);
 
 
 	private :
-		enum Type{CHAR, INT, FLOAT, DOUBLE, INV};
 		int _type;
 		std::string	_content;
 };
 
-
+void	convert(std::string str);
+enum Type{CHAR, INT, FLOAT, DOUBLE, INV};
 std::ostream&	operator<<(std::ostream& stream, Convert const &copy);
