@@ -6,7 +6,7 @@
 /*   By: gclausse <gclausse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 16:26:42 by gclausse          #+#    #+#             */
-/*   Updated: 2022/09/07 18:18:19 by gclausse         ###   ########.fr       */
+/*   Updated: 2022/09/07 18:48:25 by gclausse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,33 +75,42 @@ void	Convert::convInt(std::string const &input)
 {
 	double d = strtod(input.c_str(), NULL);
 
-	std::cout << "char : '" << static_cast<char>(d) << "'" << std::endl;
+	if (input[0] == '-')
+		std::cout << "char : impossible" << std::endl;
+	else if (d < 32 || d > 126)
+		std::cout << "char : Non displayable" << std::endl;
+	else
+		std::cout << "char : '" << static_cast<char>(d) << "'" << std::endl;
 	std::cout << "int : " <<  static_cast<int>(d)<< std::endl;
-	std::cout << "float : " << static_cast<float>(d) << std::endl;
+	std::cout << "float : " << static_cast<float>(d)<< "f"  << std::endl;
 	std::cout << "double : " << static_cast<double>(d) << std::endl;
 }
 
 void	Convert::convDouble(std::string const &input)
 {
-	const char *pbm = input.c_str();
 	double d = strtod(input.c_str(), NULL);
 	
-	std::cout << "pbm == " << pbm << std::endl;
-	std::cout << d << std::endl;
-
-	std::cout << "char : '" << static_cast<char>(d) << "'" << std::endl;
+	if (input[0] == '-' || input.compare("-inf") == 0 || input.compare("+inf") == 0|| input.compare("nan") == 0)
+		std::cout << "char : impossible" << std::endl;
+	else if (d < 32 || d > 126)
+		std::cout << "char : Non displayable" << std::endl;
+	else
+		std::cout << "char : '" << static_cast<char>(d) << "'" << std::endl;
 	std::cout << "int : " <<  static_cast<int>(d)<< std::endl;
-	std::cout << "float : " << static_cast<float>(d) << std::endl;
+	std::cout << "float : " << static_cast<float>(d) << "f" << std::endl;
 	std::cout << "double : " << static_cast<double>(d) << std::endl;
 }
 
 void	Convert::convChar(std::string const &input)
 {
 	double d = strtod(input.c_str(), NULL);
-
-	std::cout << "char : '" << static_cast<char>(d) << "'" << std::endl;
+	
+	if (d < 32 || d > 126)
+		std::cout << "char : Non displayable" << std::endl;
+	else
+		std::cout << "char : '" << static_cast<char>(d) << "'" << std::endl;
 	std::cout << "int : " <<  static_cast<int>(d)<< std::endl;
-	std::cout << "float : " << static_cast<float>(d) << std::endl;
+	std::cout << "float : " << static_cast<float>(d) << "f" << std::endl;
 	std::cout << "double : " << static_cast<double>(d) << std::endl;
 	
 }
@@ -110,11 +119,14 @@ void	Convert::convFloat(std::string const &input)
 {
 	double d = strtod(input.c_str(), NULL);
 
-
-	std::cout << "In float and d == " << d << std::endl;
-	std::cout << "char : '" << static_cast<char>(d) << "'" << std::endl;
+	if (input[0] == '-' || input.compare("-inff") == 0 || input.compare("+inff") == 0|| input.compare("nanf") == 0)
+		std::cout << "char : impossible" << std::endl;
+	else if (d < 32 || d > 126)
+		std::cout << "char : Non displayable" << std::endl;
+	else
+		std::cout << "char : '" << static_cast<char>(d) << "'" << std::endl;
 	std::cout << "int : " <<  static_cast<int>(d)<< std::endl;
-	std::cout << "float : " << static_cast<float>(d) << std::endl;
+	std::cout << "float : " << static_cast<float>(d) << "f" << std::endl;
 	std::cout << "double : " << static_cast<double>(d) << std::endl;
 	
 }
