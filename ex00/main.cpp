@@ -6,7 +6,7 @@
 /*   By: gclausse <gclausse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 16:28:30 by gclausse          #+#    #+#             */
-/*   Updated: 2022/09/07 18:04:03 by gclausse         ###   ########.fr       */
+/*   Updated: 2022/09/12 13:47:33 by gclausse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(int argc, char **argv)
 		std::cout << "Protoype : ./convert [literal]" << std::endl;
 		return 1;
 	}
-	std::cout << argv[1] << std::endl;
+	std::string s(argv[1]);
 	Convert* a = new Convert();
 	a->setType(argv[1]);
 	void(Convert::*fctptr[4])(std::string const &str) = {

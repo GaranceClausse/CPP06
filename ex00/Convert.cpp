@@ -6,7 +6,7 @@
 /*   By: gclausse <gclausse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 16:26:42 by gclausse          #+#    #+#             */
-/*   Updated: 2022/09/07 18:48:25 by gclausse         ###   ########.fr       */
+/*   Updated: 2022/09/12 13:51:30 by gclausse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 Convert::Convert()
 {
-	std::cout << "Convert default constructor called" << std::endl;
+	//std::cout << "Convert default constructor called" << std::endl;
 }
 
 Convert::~Convert()
 {
-	std::cout << "Convert destructor called" << std::endl;
+	//std::cout << "Convert destructor called" << std::endl;
 }
 
 const int	&Convert::getType() const
@@ -31,8 +31,7 @@ void	Convert::setType(std::string str)
 {
 	std::string::const_iterator it = str.begin();
 	this->_type = INV;
-	std::cout << str  << std::endl;
-	if (/*str.length() == 3 && */*it == '\'' && *(it + 2) == '\'')
+	if (str.length() == 1 && isprint(str[0]))
 	{
 		this->_type = CHAR;
 		return ;
@@ -59,13 +58,13 @@ void	Convert::setType(std::string str)
 
 Convert::Convert(const Convert& copy)
 {
-	std::cout << "Convert copy constructor called" << std::endl;
+	//std::cout << "Convert copy constructor called" << std::endl;
 	operator=(copy);
 }
 
 Convert& Convert::operator=(Convert const& copy)
 {
-	std::cout << "Convert operator = called" << std::endl;
+	//std::cout << "Convert operator = called" << std::endl;
 	_type = copy.getType();
 	return (*this);
 
@@ -82,7 +81,7 @@ void	Convert::convInt(std::string const &input)
 	else
 		std::cout << "char : '" << static_cast<char>(d) << "'" << std::endl;
 	std::cout << "int : " <<  static_cast<int>(d)<< std::endl;
-	std::cout << "float : " << static_cast<float>(d)<< "f"  << std::endl;
+	std::cout << "float : " << std::fixed << std::setprecision(1) << static_cast<float>(d)<< "f"  << std::endl;
 	std::cout << "double : " << static_cast<double>(d) << std::endl;
 }
 
@@ -97,21 +96,20 @@ void	Convert::convDouble(std::string const &input)
 	else
 		std::cout << "char : '" << static_cast<char>(d) << "'" << std::endl;
 	std::cout << "int : " <<  static_cast<int>(d)<< std::endl;
-	std::cout << "float : " << static_cast<float>(d) << "f" << std::endl;
+	std::cout << "float : " << std::fixed << std::setprecision(1) << static_cast<float>(d)<< "f"  << std::endl;
 	std::cout << "double : " << static_cast<double>(d) << std::endl;
 }
 
 void	Convert::convChar(std::string const &input)
 {
-	double d = strtod(input.c_str(), NULL);
-	
-	if (d < 32 || d > 126)
+	std::cout << "input == " << input[0] << std::endl;
+	if (input[0] < 32 || input[0] > 126)
 		std::cout << "char : Non displayable" << std::endl;
 	else
-		std::cout << "char : '" << static_cast<char>(d) << "'" << std::endl;
-	std::cout << "int : " <<  static_cast<int>(d)<< std::endl;
-	std::cout << "float : " << static_cast<float>(d) << "f" << std::endl;
-	std::cout << "double : " << static_cast<double>(d) << std::endl;
+		std::cout << "char : '" << static_cast<char>(input[0]) << "'" << std::endl;
+	std::cout << "int : " <<  static_cast<int>(input[0])<< std::endl;
+	std::cout << "float : " << std::fixed << std::setprecision(1) << static_cast<float>(input[0])<< "f"  << std::endl;
+	std::cout << "double : " << static_cast<double>(input[0]) << std::endl;
 	
 }
 
@@ -126,7 +124,7 @@ void	Convert::convFloat(std::string const &input)
 	else
 		std::cout << "char : '" << static_cast<char>(d) << "'" << std::endl;
 	std::cout << "int : " <<  static_cast<int>(d)<< std::endl;
-	std::cout << "float : " << static_cast<float>(d) << "f" << std::endl;
+	std::cout << "float : " << std::fixed << std::setprecision(1) << static_cast<float>(d)<< "f"  << std::endl;
 	std::cout << "double : " << static_cast<double>(d) << std::endl;
 	
 }

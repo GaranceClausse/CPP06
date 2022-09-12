@@ -6,7 +6,7 @@
 /*   By: gclausse <gclausse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 16:27:07 by gclausse          #+#    #+#             */
-/*   Updated: 2022/09/07 18:44:16 by gclausse         ###   ########.fr       */
+/*   Updated: 2022/09/12 13:32:49 by gclausse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 #include <sstream>
 #include <cstdlib>
 #include <cstdlib>
-#include "limits.h"
+#include <limits>
+#include <iomanip>
 
 class	Convert {
 	public :
