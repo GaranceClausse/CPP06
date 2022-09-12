@@ -6,7 +6,7 @@
 /*   By: gclausse <gclausse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 16:25:13 by gclausse          #+#    #+#             */
-/*   Updated: 2022/09/12 16:31:38 by gclausse         ###   ########.fr       */
+/*   Updated: 2022/09/12 18:35:31 by gclausse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,13 @@
 #include <limits>
 #include <iomanip>
 
-class	Data {
-	public :
-		Data();
-		~Data();
-		Data(const Data& copy);
-		Data &operator=(Data const &copy);
-
+typedef struct	s_data {
+	int	int_data;
+	float	float_data;
+	double 	double_data;
+	char	char_data;
+	std::string	string_data;
 		
-
-	private :
-};
+}	Data;
 
 uintptr_t serialize(Data* ptr);
