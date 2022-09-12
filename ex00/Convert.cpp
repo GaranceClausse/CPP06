@@ -6,7 +6,7 @@
 /*   By: gclausse <gclausse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 16:26:42 by gclausse          #+#    #+#             */
-/*   Updated: 2022/09/12 17:13:53 by gclausse         ###   ########.fr       */
+/*   Updated: 2022/09/12 17:21:32 by gclausse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void	Convert::convInt(std::string const &input)
 		std::cout << "char : Non displayable" << std::endl;
 	else
 		std::cout << "char : '" << static_cast<char>(d) << "'" << std::endl;
-	if (static_cast<int>(d) < INT_MIN  || static_cast<int>(d) > INT_MAX || d != d)
+	if ((d) < INT_MIN  || (d) > INT_MAX || d != d)
 		std::cout << "int : impossible" << std::endl;
 	else
 		std::cout << "int : " <<  static_cast<int>(d)<< std::endl;
@@ -112,7 +112,7 @@ void	Convert::convDouble(std::string const &input)
 		std::cout << "char : Non displayable" << std::endl;
 	else
 		std::cout << "char : '" << static_cast<char>(d) << "'" << std::endl;
-	if (static_cast<int>(d) < INT_MIN  || static_cast<int>(d) > INT_MAX || d != d)
+	if ((d) < INT_MIN  || (d) > INT_MAX || d != d)
 		std::cout << "int : impossible" << std::endl;
 	else
 		std::cout << "int : " <<  static_cast<int>(d)<< std::endl;
@@ -148,7 +148,7 @@ void	Convert::convFloat(std::string const &input)
 		std::cout << "char : Non displayable" << std::endl;
 	else
 		std::cout << "char : '" << static_cast<char>(d) << "'" << std::endl;
-	if (static_cast<int>(d) < INT_MIN  || static_cast<int>(d) > INT_MAX || d != d)
+	if ((d) < INT_MIN  || (d) > INT_MAX || d != d)
 		std::cout << "int : impossible" << std::endl;
 	else
 		std::cout << "int : " <<  static_cast<int>(d)<< std::endl;
