@@ -6,7 +6,7 @@
 /*   By: gclausse <gclausse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 16:25:13 by gclausse          #+#    #+#             */
-/*   Updated: 2022/09/12 18:35:31 by gclausse         ###   ########.fr       */
+/*   Updated: 2022/09/12 18:56:10 by gclausse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 #include <iomanip>
 
 typedef struct	s_data {
-	int	int_data;
+	int	size;
 	float	float_data;
 	double 	double_data;
 	char	char_data;

@@ -6,7 +6,13 @@
 /*   By: gclausse <gclausse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 16:25:03 by gclausse          #+#    #+#             */
-/*   Updated: 2022/09/12 16:25:04 by gclausse         ###   ########.fr       */
+/*   Updated: 2022/09/12 18:58:15 by gclausse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Data.hpp"
+
+uintptr_t serialize(Data* ptr)
+{
+	
+}
