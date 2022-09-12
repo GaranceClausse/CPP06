@@ -6,7 +6,7 @@
 /*   By: gclausse <gclausse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 16:28:30 by gclausse          #+#    #+#             */
-/*   Updated: 2022/09/12 13:47:33 by gclausse         ###   ########.fr       */
+/*   Updated: 2022/09/12 16:51:48 by gclausse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int argc, char **argv)
 	}
 	std::string s(argv[1]);
 	Convert* a = new Convert();
-	a->setType(argv[1]);
+	a->setType(s.c_str());
 	void(Convert::*fctptr[4])(std::string const &str) = {
 		&Convert::convChar, &Convert::convInt, &Convert::convFloat, &Convert::convDouble
 	};
