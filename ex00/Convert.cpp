@@ -6,7 +6,7 @@
 /*   By: gclausse <gclausse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 16:26:42 by gclausse          #+#    #+#             */
-/*   Updated: 2022/09/12 16:57:47 by gclausse         ###   ########.fr       */
+/*   Updated: 2022/09/12 17:13:53 by gclausse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,13 +86,17 @@ void	Convert::convInt(std::string const &input)
 {
 	double d = strtod(input.c_str(), NULL);
 
+	std::cout << "input int == " << d << std::endl;
 	if (input[0] == '-')
 		std::cout << "char : impossible" << std::endl;
 	else if (d < 32 || d > 126)
 		std::cout << "char : Non displayable" << std::endl;
 	else
 		std::cout << "char : '" << static_cast<char>(d) << "'" << std::endl;
-	std::cout << "int : " <<  static_cast<int>(d)<< std::endl;
+	if (static_cast<int>(d) < INT_MIN  || static_cast<int>(d) > INT_MAX || d != d)
+		std::cout << "int : impossible" << std::endl;
+	else
+		std::cout << "int : " <<  static_cast<int>(d)<< std::endl;
 	std::cout << "float : " << std::fixed << std::setprecision(1) << static_cast<float>(d)<< "f"  << std::endl;
 	std::cout << "double : " << static_cast<double>(d) << std::endl;
 }
@@ -100,14 +104,18 @@ void	Convert::convInt(std::string const &input)
 void	Convert::convDouble(std::string const &input)
 {
 	double d = strtod(input.c_str(), NULL);
-	
+		std::cout << "input double == " << d << std::endl;
+
 	if (input[0] == '-' || input.compare("-inf") == 0 || input.compare("+inf") == 0|| input.compare("nan") == 0)
 		std::cout << "char : impossible" << std::endl;
 	else if (d < 32 || d > 126)
 		std::cout << "char : Non displayable" << std::endl;
 	else
 		std::cout << "char : '" << static_cast<char>(d) << "'" << std::endl;
-	std::cout << "int : " <<  static_cast<int>(d)<< std::endl;
+	if (static_cast<int>(d) < INT_MIN  || static_cast<int>(d) > INT_MAX || d != d)
+		std::cout << "int : impossible" << std::endl;
+	else
+		std::cout << "int : " <<  static_cast<int>(d)<< std::endl;
 	std::cout << "float : " << std::fixed << std::setprecision(1) << static_cast<float>(d)<< "f"  << std::endl;
 	std::cout << "double : " << static_cast<double>(d) << std::endl;
 }
@@ -115,12 +123,15 @@ void	Convert::convDouble(std::string const &input)
 void	Convert::convChar(std::string const &inpt)
 {
 	std::string input = inpt.c_str();
-	std::cout << "input == " << input[1] << std::endl;
+	std::cout << "input char == " << input[1] << std::endl;
 	if (input[1] < 32 || input[1] > 126)
 		std::cout << "char : Non displayable" << std::endl;
 	else
 		std::cout << "char : '" << static_cast<char>(input[1]) << "'" << std::endl;
-	std::cout << "int : " <<  static_cast<int>(input[1])<< std::endl;
+	if (static_cast<int>(input[1]) < INT_MIN  || static_cast<int>(input[1]) > INT_MAX)
+		std::cout << "int : impossible" << std::endl;
+	else
+		std::cout << "int : " <<  static_cast<int>(input[1])<< std::endl;
 	std::cout << "float : " << std::fixed << std::setprecision(1) << static_cast<float>(input[1])<< "f"  << std::endl;
 	std::cout << "double : " << static_cast<double>(input[1]) << std::endl;
 	
@@ -129,6 +140,7 @@ void	Convert::convChar(std::string const &inpt)
 void	Convert::convFloat(std::string const &input)
 {
 	double d = strtod(input.c_str(), NULL);
+	std::cout << "input flloat == " << d << std::endl;
 
 	if (input[0] == '-' || input.compare("-inff") == 0 || input.compare("+inff") == 0|| input.compare("nanf") == 0)
 		std::cout << "char : impossible" << std::endl;
@@ -136,7 +148,10 @@ void	Convert::convFloat(std::string const &input)
 		std::cout << "char : Non displayable" << std::endl;
 	else
 		std::cout << "char : '" << static_cast<char>(d) << "'" << std::endl;
-	std::cout << "int : " <<  static_cast<int>(d)<< std::endl;
+	if (static_cast<int>(d) < INT_MIN  || static_cast<int>(d) > INT_MAX || d != d)
+		std::cout << "int : impossible" << std::endl;
+	else
+		std::cout << "int : " <<  static_cast<int>(d)<< std::endl;
 	std::cout << "float : " << std::fixed << std::setprecision(1) << static_cast<float>(d)<< "f"  << std::endl;
 	std::cout << "double : " << static_cast<double>(d) << std::endl;
 	

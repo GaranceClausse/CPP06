@@ -6,7 +6,7 @@
 /*   By: gclausse <gclausse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 16:27:07 by gclausse          #+#    #+#             */
-/*   Updated: 2022/09/12 16:40:38 by gclausse         ###   ########.fr       */
+/*   Updated: 2022/09/12 17:01:50 by gclausse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 #include <cstdlib>
 #include <limits>
 #include <iomanip>
+#include <bits/stdc++.h>
 
 class	Convert {
 	public :
