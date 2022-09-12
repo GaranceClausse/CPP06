@@ -1,5 +1,5 @@
-NAME = Bureaucrat
-SRCS = main.cpp Bureaucrat.cpp
+NAME = serialize
+SRCS = main.cpp Data.cpp
 
 CXX = c++
 CXXFLAGS = -MMD -Wall -Wextra -Werror

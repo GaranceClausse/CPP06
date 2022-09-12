@@ -6,7 +6,7 @@
 /*   By: gclausse <gclausse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 16:25:13 by gclausse          #+#    #+#             */
-/*   Updated: 2022/09/12 18:56:10 by gclausse         ###   ########.fr       */
+/*   Updated: 2022/09/12 19:16:18 by gclausse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,13 @@
 #include <cstdlib>
 #include <limits>
 #include <iomanip>
+#include <stdint.h>
 
 typedef struct	s_data {
 	int	size;
-	float	float_data;
-	double 	double_data;
-	char	char_data;
-	std::string	string_data;
+	std::string	string_data[45];
 		
 }	Data;
 
 uintptr_t serialize(Data* ptr);
+Data* deserialize(uintptr_t raw);
