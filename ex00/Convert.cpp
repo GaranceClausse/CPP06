@@ -6,7 +6,7 @@
 /*   By: gclausse <gclausse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 16:26:42 by gclausse          #+#    #+#             */
-/*   Updated: 2022/09/14 16:53:56 by gclausse         ###   ########.fr       */
+/*   Updated: 2022/09/14 17:33:17 by gclausse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,7 @@ void	Convert::convDouble(std::string const &input)
 		std::cout << "int : impossible" << std::endl;
 	else
 		std::cout << "int : " <<  static_cast<int>(d)<< std::endl;
-	if (static_cast<float>(d) < FLT_MIN  || static_cast<float>(d) > FLT_MAX)
+	if (static_cast<float>(d) > FLT_MAX)
 		std::cout << "float : impossible" << std::endl;
 	else
 		std::cout << "float : " << std::fixed << std::setprecision(1) << static_cast<float>(d)<< "f"  << std::endl;
@@ -145,20 +145,15 @@ void	Convert::convChar(std::string const &inpt)
 
 void	Convert::convFloat(std::string const &input)
 {
-	double db = strtod(input.c_str(), NULL);
-	if (static_cast<float>(db) < FLT_MIN  || static_cast<float>(db) > FLT_MAX)
-	{
-		impossible("impossible");
-		return ;
-	}
-	float d = static_cast<float>(db);
+	double d = strtod(input.c_str(), NULL);
+	
 	if (input[0] == '-' || input.compare("-inff") == 0 || input.compare("+inff") == 0|| input.compare("nanf") == 0)
 		std::cout << "char : impossible" << std::endl;
 	else if (d < 32 || d > 126)
 		std::cout << "char : Non displayable" << std::endl;
 	else
 		std::cout << "char : '" << static_cast<char>(d) << "'" << std::endl;
-	if ((db) < INT_MIN  || (db) > INT_MAX || db != db)
+	if ((d) < INT_MIN  || (d) > INT_MAX || d != d)
 		std::cout << "int : impossible" << std::endl;
 	else
 		std::cout << "int : " <<  static_cast<int>(d)<< std::endl;
