@@ -1,4 +1,4 @@
-NAME = Bureaucrat
+NAME = idetifyBase
 SRCS = main.cpp Bureaucrat.cpp
 
 CXX = c++
