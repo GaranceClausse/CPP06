@@ -6,7 +6,7 @@
 /*   By: gclausse <gclausse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 13:02:04 by gclausse          #+#    #+#             */
-/*   Updated: 2022/09/14 15:43:36 by gclausse         ###   ########.fr       */
+/*   Updated: 2022/09/14 16:21:44 by gclausse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ void identify(Base& p)
 			}
 			catch(const std::exception& e)
 			{
+				std::cout << "unknown" << std::endl;
 			}
 		}
 	}

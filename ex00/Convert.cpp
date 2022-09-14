@@ -6,7 +6,7 @@
 /*   By: gclausse <gclausse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 16:26:42 by gclausse          #+#    #+#             */
-/*   Updated: 2022/09/14 15:37:14 by gclausse         ###   ########.fr       */
+/*   Updated: 2022/09/14 16:53:56 by gclausse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,12 @@ const int	&Convert::getType() const
 	return this->_type;
 }
 
-
-const int	&Convert::getPrecision() const
+static void	impossible(std::string str)
 {
-	return this->_precision;
-}
-
-void	Convert::setPrecision(int prec)
-{
-	this->_precision = prec;
+	std::cout << "char : " << str << std::endl;
+	std::cout << "int : impossible" << std::endl;
+	std::cout << "float : impossible" << std::endl;
+	std::cout << "double : impossible" << std::endl;
 }
 
 void	Convert::setType(std::string str)
@@ -84,18 +81,22 @@ Convert& Convert::operator=(Convert const& copy)
 
 void	Convert::convInt(std::string const &input)
 {
-	double d = strtod(input.c_str(), NULL);
-
+	double db = strtod(input.c_str(), NULL);
+	if ((db) < INT_MIN  || (db) > INT_MAX || db != db)
+	{
+		impossible("impossible");
+		return ;
+	}
+	std::stringstream s_str( input );
+        int d;
+        s_str >> d;
 	if (input[0] == '-')
 		std::cout << "char : impossible" << std::endl;
 	else if (d < 32 || d > 126)
 		std::cout << "char : Non displayable" << std::endl;
 	else
 		std::cout << "char : '" << static_cast<char>(d) << "'" << std::endl;
-	if ((d) < INT_MIN  || (d) > INT_MAX || d != d)
-		std::cout << "int : impossible" << std::endl;
-	else
-		std::cout << "int : " <<  static_cast<int>(d)<< std::endl;
+	std::cout << "int : " <<  static_cast<int>(d)<< std::endl;
 	std::cout << "float : " << std::fixed << std::setprecision(1) << static_cast<float>(d)<< "f"  << std::endl;
 	std::cout << "double : " << static_cast<double>(d) << std::endl;
 }
@@ -114,7 +115,10 @@ void	Convert::convDouble(std::string const &input)
 		std::cout << "int : impossible" << std::endl;
 	else
 		std::cout << "int : " <<  static_cast<int>(d)<< std::endl;
-	std::cout << "float : " << std::fixed << std::setprecision(1) << static_cast<float>(d)<< "f"  << std::endl;
+	if (static_cast<float>(d) < FLT_MIN  || static_cast<float>(d) > FLT_MAX)
+		std::cout << "float : impossible" << std::endl;
+	else
+		std::cout << "float : " << std::fixed << std::setprecision(1) << static_cast<float>(d)<< "f"  << std::endl;
 	std::cout << "double : " << static_cast<double>(d) << std::endl;
 }
 
@@ -122,29 +126,39 @@ void	Convert::convChar(std::string const &inpt)
 {
 	std::string input = inpt.c_str();
 	if (input[1] < 32 || input[1] > 126)
-		std::cout << "char : Non displayable" << std::endl;
-	else
-		std::cout << "char : '" << static_cast<char>(input[1]) << "'" << std::endl;
+	{
+		impossible("Non displayable");
+		return ;
+	}
+	std::cout << "char : '" << static_cast<char>(input[1]) << "'" << std::endl;
 	if (static_cast<int>(input[1]) < INT_MIN  || static_cast<int>(input[1]) > INT_MAX)
 		std::cout << "int : impossible" << std::endl;
 	else
 		std::cout << "int : " <<  static_cast<int>(input[1])<< std::endl;
-	std::cout << "float : " << std::fixed << std::setprecision(1) << static_cast<float>(input[1])<< "f"  << std::endl;
+	if (static_cast<float>(input[1]) < FLT_MIN  || static_cast<float>(input[1]) > FLT_MAX)
+		std::cout << "float : impossible" << std::endl;
+	else
+		std::cout << "float : " << std::fixed << std::setprecision(1) << static_cast<float>(input[1])<< "f"  << std::endl;
 	std::cout << "double : " << static_cast<double>(input[1]) << std::endl;
 	
 }
 
 void	Convert::convFloat(std::string const &input)
 {
-	double d = strtod(input.c_str(), NULL);
-
+	double db = strtod(input.c_str(), NULL);
+	if (static_cast<float>(db) < FLT_MIN  || static_cast<float>(db) > FLT_MAX)
+	{
+		impossible("impossible");
+		return ;
+	}
+	float d = static_cast<float>(db);
 	if (input[0] == '-' || input.compare("-inff") == 0 || input.compare("+inff") == 0|| input.compare("nanf") == 0)
 		std::cout << "char : impossible" << std::endl;
 	else if (d < 32 || d > 126)
 		std::cout << "char : Non displayable" << std::endl;
 	else
 		std::cout << "char : '" << static_cast<char>(d) << "'" << std::endl;
-	if ((d) < INT_MIN  || (d) > INT_MAX || d != d)
+	if ((db) < INT_MIN  || (db) > INT_MAX || db != db)
 		std::cout << "int : impossible" << std::endl;
 	else
 		std::cout << "int : " <<  static_cast<int>(d)<< std::endl;
