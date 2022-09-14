@@ -1,5 +1,5 @@
 NAME = serialize
-SRCS = main.cpp Data.cpp
+SRCS = main.cpp
 
 CXX = c++
 CXXFLAGS = -MMD -Wall -Wextra -Werror

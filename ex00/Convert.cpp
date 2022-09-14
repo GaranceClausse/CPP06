@@ -6,7 +6,7 @@
 /*   By: gclausse <gclausse@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 16:26:42 by gclausse          #+#    #+#             */
-/*   Updated: 2022/09/12 17:21:32 by gclausse         ###   ########.fr       */
+/*   Updated: 2022/09/14 15:37:14 by gclausse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,6 @@ void	Convert::convInt(std::string const &input)
 {
 	double d = strtod(input.c_str(), NULL);
 
-	std::cout << "input int == " << d << std::endl;
 	if (input[0] == '-')
 		std::cout << "char : impossible" << std::endl;
 	else if (d < 32 || d > 126)
@@ -104,7 +103,6 @@ void	Convert::convInt(std::string const &input)
 void	Convert::convDouble(std::string const &input)
 {
 	double d = strtod(input.c_str(), NULL);
-		std::cout << "input double == " << d << std::endl;
 
 	if (input[0] == '-' || input.compare("-inf") == 0 || input.compare("+inf") == 0|| input.compare("nan") == 0)
 		std::cout << "char : impossible" << std::endl;
@@ -123,7 +121,6 @@ void	Convert::convDouble(std::string const &input)
 void	Convert::convChar(std::string const &inpt)
 {
 	std::string input = inpt.c_str();
-	std::cout << "input char == " << input[1] << std::endl;
 	if (input[1] < 32 || input[1] > 126)
 		std::cout << "char : Non displayable" << std::endl;
 	else
@@ -140,7 +137,6 @@ void	Convert::convChar(std::string const &inpt)
 void	Convert::convFloat(std::string const &input)
 {
 	double d = strtod(input.c_str(), NULL);
-	std::cout << "input flloat == " << d << std::endl;
 
 	if (input[0] == '-' || input.compare("-inff") == 0 || input.compare("+inff") == 0|| input.compare("nanf") == 0)
 		std::cout << "char : impossible" << std::endl;

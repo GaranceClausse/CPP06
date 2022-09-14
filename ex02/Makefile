@@ -1,5 +1,5 @@
-NAME = idetifyBase
-SRCS = main.cpp Bureaucrat.cpp
+NAME = identifyBase
+SRCS = main.cpp Base.cpp
 
 CXX = c++
 CXXFLAGS = -MMD -Wall -Wextra -Werror
